@@ -15,7 +15,35 @@ table, th,td{
     border-collapse: collapse;
     color: white;
     text-align: center;
+    margin-right: 2vw;
+
+}
+th{
+    background-color: #F27141;
 }
 th,td{
     font-size: 30px;
+}
+
+.h3Clase{
+    display: flex;
+    color: white;
+    align-items: center;
+    margin-bottom: 2vh;
+    font-size: 30px;
+    background-color: #F27141;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+.tablaClase{
+    float: left;
+    margin-bottom: 10px;
+    width: 45%;
+}
+.habilidades{
+    display: flex;
+}
+.pClase{
+    margin-bottom: 2.5vh;
 }

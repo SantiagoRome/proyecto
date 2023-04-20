@@ -10,10 +10,11 @@
     <br>
     <br>
     <h1>Habilidades de clase</h1><br>
+    <section>
     <?php
         $habilidades=$dataToView->getHabilidades();
     ?>
-    <table>
+    <table class="tablaClase">
         <thead>
             <tr>
                 <th>
@@ -47,4 +48,25 @@
             ?>
         </tbody>
     </table>
+    <br>
+    <?php
+    for($i=0;$i<count($habilidades);$i++){
+    ?>
+    <h3 class="h3Clase"><?php echo $habilidades[$i]->getNombre()."<span style='margin-left:auto';>Nivel ".$habilidades[$i]->getNivel()."</span>"?></h3>
+    <?php
+        if($habilidades[$i]->getTipo()!=null){
+            echo "<p class='pClase'>Tipo de acción:".$habilidades[$i]->getTipo()."</p>";
+        }
+        if($habilidades[$i]->getCantidad()!=null){
+            echo "<p class='pClase'>Cantidad de usos:".$habilidades[$i]->getCantidad()."</p>";
+        }
+        if($habilidades[$i]->getDuracion()!=null){
+            echo "<p class='pClase'>Duración:".$habilidades[$i]->getDuracion()."</p>";
+        }
+    ?>
+        <p class="pClase"><?=$habilidades[$i]->getDescripcion()?></p>
+    <?php
+    }
+    ?>
+    </section>
 </main>
