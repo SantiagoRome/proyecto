@@ -29,7 +29,7 @@ class Tameforsomis
 			$i = 0;
 
 			while ($row = $result->fetch_assoc()) {
-				$this->clases[$i] = new Clase($row['nombre'], $row['descripcion'], $row['rol'], $row['estadisticas'], $row['competencias'], $row['equipamiento']);
+				$this->clases[$i] = new Clase($row['nombre'], $row['descripcion'], $row['rol'], $row['estadisticas'], $row['competencias'], $row['equipamiento'],$row['imagen']);
 				$i++;
 			}
 		}

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="view/css/estilocabecera.css" />
     <link rel="stylesheet" href="view/css/estiloindex.css" />
     <link rel="stylesheet" href="view/css/footer.css" />
+    <link rel="stylesheet" href="view/css/estiloclases.css" />
     <script src="https://kit.fontawesome.com/2aa1d70c63.js" crossorigin="anonymous"></script>
     <script src="view/js/jquery-3.6.3.min.js"></script>
     <title>Document</title>
@@ -30,7 +31,7 @@
             <i class="fa-solid fa-caret-down ocultarRazas invisible" style="color: #ffffff;"></i>
         </div>
         <a class="logo" href="index.php">
-            <img src="img/logofinal.jpg" alt="">
+            <img class="imagenLogo" src="img/logofinal.jpg" alt="">
         </a>
         <a class="headera" href="index.php">
             Foros

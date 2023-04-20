@@ -7,7 +7,7 @@ class Clase
 	private $estadisticas;
 	private $competencias;
 	private $equipamiento;
-
+    private $img;
 	private array $habilidades = array(); // array de objetos categoria del negocio
 	private array $empleados = array(); //array de objetos gestor asociados al negocio cuyo rol=2
 
@@ -15,7 +15,7 @@ class Clase
 	private $conection;
 
 	// Métodos
-	public function __construct($nombre, $descripcion, $estadisticas, $rol, $competencias, $equipamiento)
+	public function __construct($nombre, $descripcion, $estadisticas, $rol, $competencias, $equipamiento,$img)
 	{
 		$this->nombre = $nombre;
 		$this->descripcion = $descripcion;
@@ -23,6 +23,7 @@ class Clase
         $this->rol = $rol;
 		$this->competencias = $competencias;
 		$this->equipamiento = $equipamiento;
+        $this->img=$img;
         $this->getConection();
 	}
 
@@ -52,6 +53,10 @@ class Clase
 	{
 		return $this->equipamiento;
 	}
+    public function getImg()
+    {
+        return $this->img;
+    }
     public function getConection()
 	{
 		$dbObj = new Db();

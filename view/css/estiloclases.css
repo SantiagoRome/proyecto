@@ -1,0 +1,21 @@
+.h1clases{
+    color: white;
+    margin-bottom: 2vh;
+    font-size: 36px;
+    text-shadow: 4px 4px rgb(106, 106, 106);
+}
+.pclases{
+    color: rgb(206, 203, 203);
+    width: 75%;
+    font-size: 30px;
+}
+.imagenClases{
+    width: 20%;
+}
+.divClases{
+    display: flex;
+    justify-content: space-between;
+}
+.sectionClases{
+    margin-bottom: 2vh;
+}
