@@ -1,0 +1,26 @@
+main{
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+.indexh1{
+    color: rgb(30, 147, 193);
+    font-size: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    height: 70px;
+    /*text-shadow: 4px 4px rgb(106, 106, 106);*/
+    text-shadow: 2px 2px rgb(159, 220, 244);
+}
+.indexp{
+    font-size: 26px;
+    color: rgb(206, 203, 203);
+    text-align: justify;
+}
+.indexsection{
+    margin-bottom: 5vh;
+}
+span{
+    color: cyan;
+}

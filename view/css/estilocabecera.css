@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+html{
+  height: 100vh;
+}
+.headerdiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+i{
+  width: 12px;
+  height: 12px;
+}
+  header{
+    display: flex;
+    height: 7vh;
+    background-color: black;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid rgb(134, 130, 130);
+    margin-bottom: 2vh;
+  }
+  /*clase exlusiva para el logo del header*/
+  .logo{
+    width: 26%;
+    height: 100%;
+    background-size: cover;
+    align-self: initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .headera{
+    font-size: 20px;
+    color: rgb(207, 201, 201);
+    font-size: 40px;
+  }
+  body{
+    /*background: url(../../img/HD-wallpaper-stars-black-blackandwhite-night-sky-star-white.jpg);*/
+  }
+  img{
+    width: 90%;
+  }
+  .headera:link,   .headera:visited,   .headera:active {
+    text-decoration:none;
+}
+.headera:nth-child(1){
+  text-decoration: underline;
+}
+.headera:nth-child(2){
+  text-decoration: underline;
+}
+.probando{
+
+  background-image: url(../../img/prueba2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.imagenRaza, .imagenClase{
+  border-radius: 50%;
+  width: 70%;
+}
+.razas, .clases{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  transition: all 1s;
+}
+.raza, .clase{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: brown;
+  margin-bottom: 2vh;
+  margin-left: 2%;
+  margin-right: 2%;
+  height: 160px;
+  width: 160px;
+  transition: width 1s;
+}
+.invisible{
+  display: none !important;
+}
+.ocultarRazas,.ocultarClases{
+  transform: rotateX(180deg);
+}
+
+
+
