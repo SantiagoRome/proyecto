@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="view/css/estiloindex.css" />
     <link rel="stylesheet" href="view/css/footer.css" />
     <link rel="stylesheet" href="view/css/estiloclases.css" />
+    <link rel="stylesheet" href="view/css/estiloclase.css" />
     <script src="https://kit.fontawesome.com/2aa1d70c63.js" crossorigin="anonymous"></script>
     <script src="view/js/jquery-3.6.3.min.js"></script>
     <title>Document</title>

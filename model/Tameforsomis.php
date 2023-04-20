@@ -29,11 +29,19 @@ class Tameforsomis
 			$i = 0;
 
 			while ($row = $result->fetch_assoc()) {
-				$this->clases[$i] = new Clase($row['nombre'], $row['descripcion'], $row['rol'], $row['estadisticas'], $row['competencias'], $row['equipamiento'],$row['imagen']);
+				$this->clases[$i] = new Clase($row['nombre'], $row['descripcion'], $row['estadisticas'],$row['rol'], $row['competencias'], $row['equipamiento'],$row['imagen']);
 				$i++;
 			}
 		}
 
 		return $this->clases;
+	}
+	public function verClasePorNombre($nombre){
+		//$sql ="SELECT * FROM clase c JOIN niveles n ON c.nombre=n.clase JOIN habilidades h ON n.habilidad=h.nombre WHERE c.nombre='$nombre'";
+		$sql="SELECT * FROM clase WHERE nombre='$nombre'";
+		$result = $this->conection->query($sql);
+		$row = $result->fetch_assoc();
+		$clase= new Clase($row['nombre'], $row['descripcion'], $row['estadisticas'],$row['rol'], $row['competencias'], $row['equipamiento'],$row['imagen']);
+		return $clase;
 	}
 }

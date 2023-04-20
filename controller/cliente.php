@@ -27,10 +27,10 @@ class cliente
 		return $this->tameforsomis->getClases();
 	}
 
-	public function verClase($nombreClase = null)
+	public function verClase()
 	{
 		$this->view = 'clase';
-		if (isset($_GET["id"])) $nombreClase = $_GET["nombreClase"];
+		$nombreClase = $_GET["nombreClase"];
 		$negocio = $this->tameforsomis->verClasePorNombre($nombreClase);
 
 

@@ -6,18 +6,18 @@ class Habilidad
 	private $cantidad;
 	private $duracion;
 	private $descripcion;
-
+    private $nivel;
 	private $conection;
 
 	// Métodos
-	public function __construct($nombre, $tipo, $cantidad, $duracion, $descripcion, )
+	public function __construct($nombre, $tipo, $cantidad, $duracion, $descripcion, $nivel)
 	{
 		$this->nombre = $nombre;
 		$this->tipo = $tipo;
         $this->cantidad = $cantidad;
         $this->duracion = $duracion;
 		$this->descripcion = $descripcion;
-	
+        $this->nivel=$nivel;
         $this->getConection();
 	}
 
@@ -43,6 +43,10 @@ class Habilidad
 	{
 		return $this->duracion;
 	}
+    public function getNivel()
+    {
+        return $this->nivel;
+    }
     public function getConection()
 	{
 		$dbObj = new Db();

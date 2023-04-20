@@ -65,14 +65,14 @@ class Clase
     public function getHabilidades()
 	{
 		$this->getConection();
-		$sql = "SELECT h.* FROM habilidades h JOIN niveles n ON h.nombre=n.habilidad JOIN clase c ON c.nombre=n.clase WHERE c.nombre = '$this->nombre' ORDER BY nivel ASC";
+		$sql = "SELECT h.*, n.nivel FROM habilidades h JOIN niveles n ON h.nombre=n.habilidad JOIN clase c ON c.nombre=n.clase WHERE c.nombre = '$this->nombre' ORDER BY nivel ASC";
 
 		$result = $this->conection->query($sql);
 
 		if ($result->num_rows > 0) {
 			$i = 0;
 			while ($row = $result->fetch_assoc()) {
-				$this->habilidades[$i] = new Habilidad($row['nombre'], $row['tipo'], $row['img'], $row['duracion'], $row['descripcion']);
+				$this->habilidades[$i] = new Habilidad($row['nombre'], $row['tipo'], $row['cantidad'], $row['duracion'], $row['descripcion'],$row['nivel']);
 				$i++;
 			}
 			return $this->habilidades;
