@@ -5,6 +5,7 @@ require_once 'model/Tameforsomis.php';
 require_once 'controller/cliente.php';
 require_once 'model/clase.php';
 require_once 'model/habilidad.php';
+require_once 'model/raza.php';
 if  (!isset($_GET["action"])) $_GET["action"] = constant("DEFAULT_ACTION");
 
 

@@ -44,4 +44,28 @@ class Tameforsomis
 		$clase= new Clase($row['nombre'], $row['descripcion'], $row['estadisticas'],$row['rol'], $row['competencias'], $row['equipamiento'],$row['imagen']);
 		return $clase;
 	}
+	public function getRazas()
+	{
+		$sql = "SELECT * FROM raza";
+		$result = $this->conection->query($sql);
+
+		if ($result->num_rows > 0) {
+			$i = 0;
+
+			while ($row = $result->fetch_assoc()) {
+				$this->razas[$i] = new Raza($row['nombre'], $row['descripcion'], $row['dado'],$row['mediaVida'], $row['idioma'], $row['habilidad'],$row['imagen']);
+				$i++;
+			}
+		}
+
+		return $this->razas;
+	}
+	public function verRazaPorNombre($nombre){
+		//$sql ="SELECT * FROM clase c JOIN niveles n ON c.nombre=n.clase JOIN habilidades h ON n.habilidad=h.nombre WHERE c.nombre='$nombre'";
+		$sql="SELECT * FROM raza WHERE nombre='$nombre'";
+		$result = $this->conection->query($sql);
+		$row = $result->fetch_assoc();
+		$raza= new Raza($row['nombre'], $row['descripcion'], $row['dado'],$row['mediaVida'], $row['idioma'], $row['habilidad'],$row['imagen']);
+		return $raza;
+	}
 }

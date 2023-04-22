@@ -1,5 +1,8 @@
 footer{
-    height: 10vh;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
 .footerp{
     text-align: end;

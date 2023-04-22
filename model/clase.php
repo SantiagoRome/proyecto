@@ -9,7 +9,6 @@ class Clase
 	private $equipamiento;
     private $img;
 	private array $habilidades = array(); // array de objetos categoria del negocio
-	private array $empleados = array(); //array de objetos gestor asociados al negocio cuyo rol=2
 
 
 	private $conection;
@@ -65,7 +64,7 @@ class Clase
     public function getHabilidades()
 	{
 		$this->getConection();
-		$sql = "SELECT h.*, n.nivel FROM habilidades h JOIN niveles n ON h.nombre=n.habilidad JOIN clase c ON c.nombre=n.clase WHERE c.nombre = '$this->nombre' ORDER BY nivel ASC";
+		$sql = "SELECT h.*, n.nivel FROM habilidad h JOIN nivel n ON h.nombre=n.habilidad JOIN clase c ON c.nombre=n.clase WHERE c.nombre = '$this->nombre' ORDER BY nivel ASC";
 
 		$result = $this->conection->query($sql);
 

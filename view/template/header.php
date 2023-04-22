@@ -25,7 +25,7 @@
             <i class="fa-solid fa-caret-down ocultarClases invisible" style="color: #ffffff;"></i>
         </div>
         <div class="headerdiv">
-            <a class="headera" href="index.php">
+            <a class="headera" href="index.php?action=listarRazas">
                 Razas
             </a>
             <i class="fa-solid fa-caret-down iconoRazas" style="color: #ffffff;"></i>
