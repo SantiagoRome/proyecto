@@ -65,14 +65,14 @@ class Raza
     public function getOrigenes()
 	{
 		$this->getConection();
-		$sql = "SELECT h.*, n.nivel FROM habilidades h JOIN niveles n ON h.nombre=n.habilidad JOIN clase c ON c.nombre=n.clase WHERE c.nombre = '$this->nombre' ORDER BY nivel ASC";
+		$sql = "SELECT * FROM origen WHERE raza='$this->nombre'";
 
 		$result = $this->conection->query($sql);
 
 		if ($result->num_rows > 0) {
 			$i = 0;
 			while ($row = $result->fetch_assoc()) {
-				$this->origenes[$i] = new Habilidad($row['nombre'], $row['tipo'], $row['cantidad'], $row['duracion'], $row['descripcion'],$row['nivel']);
+				$this->origenes[$i] = new Origen($row['nombre'], $row['descripcion'], $row['dado'],$row['mediaVida'], $row['habilidad']);
 				$i++;
 			}
 			return $this->origenes;

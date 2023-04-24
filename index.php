@@ -6,6 +6,7 @@ require_once 'controller/cliente.php';
 require_once 'model/clase.php';
 require_once 'model/habilidad.php';
 require_once 'model/raza.php';
+require_once 'model/origen.php';
 if  (!isset($_GET["action"])) $_GET["action"] = constant("DEFAULT_ACTION");
 
 

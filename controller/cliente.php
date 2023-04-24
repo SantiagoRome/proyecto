@@ -41,12 +41,10 @@ class cliente
 		$this->view = 'razas';
 		return $this->tameforsomis->getRazas();
 	}
-	public function verRaza($nombreRaza = null)
+	public function verRaza()
 	{
-		$this->view = 'razas';
-
-
-		if (isset($_GET["id"])) $nombreRaza = $_GET["nombreRaza"];
+		$this->view = 'raza';
+		$nombreRaza = $_GET["nombreRaza"];
 		$negocio = $this->tameforsomis->verRazaPorNombre($nombreRaza);
 
 		return $negocio;
