@@ -12,7 +12,7 @@
             <label id="conincidencia"></label>
             <label id="existeUsuario"></label>
             <label id="errorEscritura"></label>
-            <input type="button" value="Hola" onclick="comprobarRegistro()">
+            <input type="submit" id="botonRegistro" value="Hola" onclick="event.preventDefault();comprobarRegistro()">
             <input type="hidden" name="action" value="verPerfil">
         </form>
     </section>
@@ -36,7 +36,7 @@
            xhttp.onload = function(){
                resultado=this.responseText;
                if(resultado=="existe"){
-                    document.getElementById("existeUsuario").innerHTML="el nombre de usuario ya esta escogido"
+                    document.getElementById("existeUsuario").innerHTML="el nombre de usuario ya esta escogido";
                }else{
                     document.getElementById("existeUsuario").innerHTML="";
                 }
@@ -49,9 +49,11 @@
             var contrasena=document.getElementById("contrasena").value;
             var contrasenaRepetir=document.getElementById("repetir").value;
             if(contrasena!=contrasenaRepetir){
-                document.getElementById("conincidencia").innerText="Las contraseñas no coinciden";    
+                document.getElementById("conincidencia").innerText="Las contraseñas no coinciden";
+                document.getElementById('botonRegistro').disabled=true;    
             }else{
-                document.getElementById("conincidencia").innerText=""; 
+                document.getElementById("conincidencia").innerText="";
+                document.getElementById('botonRegistro').disabled=false;
             }
         }
         function iniciarSesion(){          
