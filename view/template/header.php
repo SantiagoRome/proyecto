@@ -38,7 +38,7 @@
         <a class="headera" href="index.php">
             Foros
         </a>
-        <a class="headera" href="index.php">
+        <a class="headera" href="index.php?action=verUsuario">
             Usuario
         </a>
     </header>

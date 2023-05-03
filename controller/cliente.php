@@ -49,4 +49,14 @@ class cliente
 
 		return $negocio;
 	}
+	public function verUsuario()
+	{
+		$this->view = 'usuario';
+		
+	}
+	public function verPerfil()
+	{
+		$this->view = 'perfil';
+		
+	}
 }
