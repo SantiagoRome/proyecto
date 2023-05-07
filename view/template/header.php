@@ -35,12 +35,24 @@
         <a class="logo" href="index.php">
             <img class="imagenLogo" src="img/logofinal.jpg" alt="">
         </a>
-        <a class="headera" href="index.php">
+        <a class="headera" href="index.php?action=verForos">
             Foros
         </a>
-        <a class="headera" href="index.php?action=verUsuario">
+        <?php
+        if(isset($_COOKIE['user'])){
+            ?>
+            <a class="headera" href="index.php?action=verPerfil">
+            <?php echo $_COOKIE['user'];?>
+        </a>
+        <?php
+        }else{
+            ?>
+            <a class="headera" href="index.php?action=verUsuario">
             Usuario
         </a>
+            <?php
+        }
+?>
     </header>
     <div class="razas invisible">
         <a class="raza " href="index.php"><img class="imagenRaza" src="img/humano.png" ><h2>Humano</h2></a>

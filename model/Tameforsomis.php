@@ -6,7 +6,8 @@ class Tameforsomis
 	private $conection;
 	private array $clases = array();
 	private array $razas = array();
-	private array $habilidades = array();
+	private array $foros = array();
+	private array $usuarios = array();
 
 
 	function __construct()
@@ -67,5 +68,33 @@ class Tameforsomis
 		$row = $result->fetch_assoc();
 		$raza= new Raza($row['nombre'], $row['descripcion'], $row['dado'],$row['mediaVida'], $row['idioma'], $row['habilidad'],$row['imagen']);
 		return $raza;
+	}
+	public function getUsers(){
+		$sql = "SELECT * FROM usuarios";
+		$result = $this->conection->query($sql);
+
+		if ($result->num_rows > 0) {
+			$i = 0;
+
+			while ($row = $result->fetch_assoc()) {
+				$this->usuarios[$i] = new Usuario($row['nombre'], $row['email'], $row['apellidos'],$row['fechaNacimiento'], $row['contrasena'], $row['usuario']);
+				$i++;
+			}
+		}
+
+		return $this->usuarios;
+	}
+	public function getUserEspecifico($user){
+		$sql = "SELECT * FROM usuario WHERE usuario='$user'";
+		$result = $this->conection->query($sql);
+		$row = $result->fetch_assoc();
+		$usuario = new Usuario($row['nombre'], $row['email'], $row['apellidos'],$row['fechaNacimiento'], $row['contrasena'], $row['usuario']);
+
+		return $usuario;
+	}
+	public function crearUsuario(){
+		$usuario = new Usuario($_POST['nombre'], $_POST['email'], $_POST['apellidos'],$_POST['fnac'], $_POST['contrasena'], $_POST['usuario']);
+		$usuario->crearUser();
+		return $usuario;
 	}
 }

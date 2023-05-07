@@ -1,28 +1,26 @@
 <main>
     <section class="sectionRegistro">
         <h1>Registro</h1>
-        <form action="index.php?action=verPerfil" id="registrarse">
-            <input type="text" placeholder="E-mail" name="e-mail" id="e-mail" required>
+        <form action="index.php?action=verPerfil" id="registrarse" method="POST">
+            <input type="text" placeholder="E-mail" name="email" id="e-mail" required>
             <input type="text" placeholder="Usuario" name="usuario" id="usuario" onchange="comprobarUsuario()" required>
             <input type="text" placeholder="Nombre" name="nombre" id="nombre" required>
             <input type="text" placeholder="Apellidos" name="apellidos" id="apellidos" required>
-            <input type="date"  id="fnac" required>
+            <input type="date" name="fnac" id="fnac" required>
             <input type="password" placeholder="Contraseña (1-12, una mayuscula, un numero)" id="contrasena" name="contrasena" required> 
             <input type="password" placeholder="repite la contraseña" id="repetir" name="repetir" onchange="comprobarContrasena()" required>
-            <label id="conincidencia"></label>
+            <label id="coincidencia"></label>
             <label id="existeUsuario"></label>
             <label id="errorEscritura"></label>
             <input type="submit" id="botonRegistro" value="Hola" onclick="event.preventDefault();comprobarRegistro()">
-            <input type="hidden" name="action" value="verPerfil">
         </form>
     </section>
     <section class="sectionInicioSesion">
         <h1>Inicio de sesión</h1>
-        <form action="index.php?action=verPerfil" id="inicioDeSesion" name="inicioDeSesion">
+        <form action="index.php?action=verPerfil" id="inicioDeSesion" name="inicioDeSesion" method="POST">
             <input type="text" placeholder="Usuario" name="usuario" id="usuarioIni">
             <input type="password" placeholder="Contraseña" name="contrasena" id="contrasenaIni"> 
             <label id="errorInicio" style="display: none;" >La contraseña o el usuario son incorrectos</label>
-            <input type="hidden" name="action" value="verPerfil">
             <input type="button" onclick="iniciarSesion()" value="Iniciar Sesion">
         </form>
     </section> 
@@ -49,10 +47,10 @@
             var contrasena=document.getElementById("contrasena").value;
             var contrasenaRepetir=document.getElementById("repetir").value;
             if(contrasena!=contrasenaRepetir){
-                document.getElementById("conincidencia").innerText="Las contraseñas no coinciden";
+                document.getElementById("coincidencia").innerText="Las contraseñas no coinciden";
                 document.getElementById('botonRegistro').disabled=true;    
             }else{
-                document.getElementById("conincidencia").innerText="";
+                document.getElementById("coincidencia").innerText="";
                 document.getElementById('botonRegistro').disabled=false;
             }
         }
@@ -65,9 +63,9 @@
                resultado=this.responseText;
                if(resultado=="error"){
                     document.getElementById("errorInicio").style.display="initial";
-                    return false;
+                   
                }else if(resultado=="correcto"){
-                    return true; 
+                    document.inicioDeSesion.submit();
                 
                 }
            }

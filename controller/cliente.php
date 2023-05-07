@@ -7,6 +7,7 @@ class cliente
 {
 
 	public $view;
+	public $lateralDerecho;
 	private $tameforsomis;
 
 
@@ -57,6 +58,17 @@ class cliente
 	public function verPerfil()
 	{
 		$this->view = 'perfil';
-		
+		if(isset($_POST['email'])){
+			$usuario=$this->tameforsomis->crearUsuario();
+			setcookie("user",$_POST['usuario'],time()+3600*24*365,'/');
+			return $usuario;
+		}else if(isset($_COOKIE["user"])){
+			$usuario=$this->tameforsomis->getUserEspecifico($_COOKIE["user"]);
+			return $usuario;
+		}else{
+			setcookie("user",$_POST['usuario'],time()+3600*24*365,'/');
+			$usuario=$this->tameforsomis->getUserEspecifico($_POST['usuario']);
+			return $usuario;
+		}
 	}
 }
