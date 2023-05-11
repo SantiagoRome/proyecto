@@ -22,18 +22,21 @@
             ?>
                 <p value="respuestas" onclick="verRespuestas(<?php echo $mensajes[$i]->getId()?> ,'<?php echo 'mensaje'.$i ?>')">Ver respuestas<i class="fa-solid fa-caret-down" style="color: #ffffff;"></i></p>
             <?php
-            }
-                if($mensajes[$i]->getCreador()==$_COOKIE['user'] || $_COOKIE['user']=="Administrador"){
+            }   
+                if(isset($_COOKIE['user'])){
+                    if($mensajes[$i]->getCreador()==$_COOKIE['user'] || $_COOKIE['user']=="Administrador"){
             ?>
                 <input class="botonCerrar" type="button" onclick="borrar('<?=$mensajes[$i]->getId()?>')" value="borrar">
             <?php
                 }
+            }
             ?>
                 <input type="button" onclick="contestar('<?=$mensajes[$i]->getId()?>')" value="contestar">
             </div>
         </article><br>
             <?php
             }
+        
         }
     ?>
 </main>
@@ -92,13 +95,19 @@
             /*if(!empty($mensajes[$i]->getMensajes()))
                 <p onclick="verRespuestas(<?php //echo $mensajes[$i]->getId()?> ,'')">Ver respuestas<i class="fa-solid fa-caret-down" style="color: #ffffff;"></i></p>
             }*/
+            borrar=false;
+            <?php if(isset($_COOKIE['user'])){ ?>
                 if(resultado[i]['usuario']=="<?=$_COOKIE['user']?>" || "<?=$_COOKIE['user']?>"=="Administrador"){
 
                 inputborrar=document.createElement('input');
                 inputborrar.setAttribute("onclick","borrar("+resultado[i]['id']+")");
                 inputborrar.value="borrar";
                 inputborrar.setAttribute("type","button");
+                borrar=true;
             }
+            <?php
+            }
+            ?>
             inputcontestar=document.createElement('input');
             inputcontestar.setAttribute("onclick","contestar("+resultado[i]['id']+")");
             inputcontestar.value="contestar";
@@ -108,7 +117,9 @@
             articulo.appendChild(h2);
             articulo.appendChild(p);
             articulo.appendChild(div);
-            div.appendChild(inputborrar);
+            if(borrar==true){
+                div.appendChild(inputborrar);
+            }
             div.appendChild(inputcontestar);
            }
             boton=pregunta.children;
