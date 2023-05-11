@@ -71,4 +71,14 @@ class cliente
 			return $usuario;
 		}
 	}
+	public function listarForos()
+	{
+		$this->view = 'foros';
+		return $this->tameforsomis->getForos();	
+	}
+	public function verForo()
+	{
+		$this->view='foro';
+		return $this->tameforsomis->getForoPorId($_GET['id']);
+	}
 }

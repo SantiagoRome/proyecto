@@ -48,8 +48,9 @@ i{
   .imagenLogo{
     width: 90%;
   }
-  .headera:link,   .headera:visited,   .headera:active {
+  a:link,   a:visited,   a:active {
     text-decoration:none;
+    color: rgb(207, 201, 201);
 }
 .headera:nth-child(1){
   text-decoration: underline;

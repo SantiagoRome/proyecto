@@ -8,6 +8,7 @@ class Clase
 	private $competencias;
 	private $equipamiento;
     private $img;
+	
 	private array $habilidades = array(); // array de objetos categoria del negocio
 
 

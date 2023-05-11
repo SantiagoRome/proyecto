@@ -21,5 +21,5 @@ class Db
 		if ($this->conection->connect_error) {
 			die("Fallo en la conexión " . $this->conection->connect_error);
 		}
-	} 
+	}
 }

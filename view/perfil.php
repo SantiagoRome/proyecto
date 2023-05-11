@@ -50,16 +50,7 @@
             const xhttp= new XMLHttpRequest();
             
            xhttp.onload = function(){
-               resultado=this.responseText;
-               console.log(resultado);
                
-               if(resultado=="error"){
-                    console.log("jo") ;
-                   
-               }else if(resultado=="correcto"){
-                    console.log("de puta madre");
-                
-                }
            }
            xhttp.open("GET","./view/ajax/cambiarDatos.php?datos="+data+"&parte="+id); 
            xhttp.send(); 

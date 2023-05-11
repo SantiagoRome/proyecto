@@ -8,10 +8,7 @@ class Raza
 	private $idioma;
 	private $habilidad;
     private $img;
-	private array $origenes = array(); // array de objetos categoria del negocio
-
-
-
+	private array $origenes = array(); 
 	private $conection;
 
 	// Métodos

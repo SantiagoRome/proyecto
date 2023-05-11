@@ -1,0 +1,25 @@
+
+.articleForo{
+    background-color: rgba(205, 203, 203, 0.324);
+    width: 100%;
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 1vw 5px 1vw 5px;
+
+}
+.articleForo h2{
+    width: 100%;
+}
+.textoMensaje{
+    width: 100%;
+}
+.botones{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.botones p{
+    font-size: 16px;
+    align-items: end;
+}

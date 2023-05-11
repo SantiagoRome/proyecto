@@ -38,7 +38,7 @@ class Tameforsomis
 		return $this->clases;
 	}
 	public function verClasePorNombre($nombre){
-		//$sql ="SELECT * FROM clase c JOIN niveles n ON c.nombre=n.clase JOIN habilidades h ON n.habilidad=h.nombre WHERE c.nombre='$nombre'";
+		
 		$sql="SELECT * FROM clase WHERE nombre='$nombre'";
 		$result = $this->conection->query($sql);
 		$row = $result->fetch_assoc();
@@ -62,7 +62,7 @@ class Tameforsomis
 		return $this->razas;
 	}
 	public function verRazaPorNombre($nombre){
-		//$sql ="SELECT * FROM clase c JOIN niveles n ON c.nombre=n.clase JOIN habilidades h ON n.habilidad=h.nombre WHERE c.nombre='$nombre'";
+		
 		$sql="SELECT * FROM raza WHERE nombre='$nombre'";
 		$result = $this->conection->query($sql);
 		$row = $result->fetch_assoc();
@@ -96,5 +96,31 @@ class Tameforsomis
 		$usuario = new Usuario($_POST['nombre'], $_POST['email'], $_POST['apellidos'],$_POST['fnac'], $_POST['contrasena'], $_POST['usuario']);
 		$usuario->crearUser();
 		return $usuario;
+	}
+	public function getForos(){
+		$sql = "SELECT f.id as idForo, f.nombre as nombreForo, u.usuario as nombreCreador FROM foro f JOIN usuario u ON u.id=f.creador ";
+		$result = $this->conection->query($sql);
+
+		if ($result->num_rows > 0) {
+			$i = 0;
+
+			while ($row = $result->fetch_assoc()) {
+				$this->foros[$i] = new Foro($row['nombreForo'], $row['nombreCreador'],$row['idForo']);
+				$i++;
+			}
+		}
+		return $this->foros;
+	}
+	public function getForoPorId($id){
+		$sql = "SELECT f.id as idForo, f.nombre as nombreForo, u.usuario as nombreCreador FROM foro f JOIN usuario u ON u.id=f.creador WHERE f.id=$id";
+		$result = $this->conection->query($sql);
+
+		if ($result->num_rows > 0) {
+			
+
+			$row = $result->fetch_assoc();
+				$foro = new Foro($row['nombreForo'], $row['nombreCreador'],$row['idForo']);	
+		}
+		return $foro;
 	}
 }
