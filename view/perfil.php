@@ -1,5 +1,8 @@
 <main>
     <section>
+        <?php
+            var_dump($_COOKIE['user']);
+        ?>
         <h1>Mi cuenta</h1>
         <div>
             <input type="text" name="usuario" id="usuario" value="<?=$_COOKIE['user']?>" disabled>
@@ -22,6 +25,9 @@
             <input type="password" placeholder="repite la contraseña" id="repetir" name="repetir" onchange="comprobarContrasena()" required>
             <label id="coincidencia"></label>
         </div>
+
+            <a href="index.php?action=deslogear"><input type="submit" value="deslogear"></a>
+
     </section>
     <script>
         function comprobarContrasena(){

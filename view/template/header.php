@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="view/css/estiloclase.css" />
     <link rel="stylesheet" href="view/css/estiloraza.css" />
     <link rel="stylesheet" href="view/css/estiloforo.css" />
+    <link rel="stylesheet" href="view/css/estiloregistro.css" />
     <script src="https://kit.fontawesome.com/2aa1d70c63.js" crossorigin="anonymous"></script>
     <script src="view/js/jquery-3.6.3.min.js"></script>
     <title>Document</title>

@@ -9,10 +9,10 @@
             <input type="date" name="fnac" id="fnac" required>
             <input type="password" placeholder="Contraseña (1-12, una mayuscula, un numero)" id="contrasena" name="contrasena" required> 
             <input type="password" placeholder="repite la contraseña" id="repetir" name="repetir" onchange="comprobarContrasena()" required>
-            <label id="coincidencia"></label>
-            <label id="existeUsuario"></label>
-            <label id="errorEscritura"></label>
-            <input type="submit" id="botonRegistro" value="Hola" onclick="event.preventDefault();comprobarRegistro()">
+            <p id="coincidencia"></p>
+            <p id="existeUsuario"></p>
+            <p id="errorEscritura"></p>
+            <input type="submit" class="submitRegistro" id="botonRegistro" value="Registrarse" onclick="event.preventDefault();comprobarRegistro()">
         </form>
     </section>
     <section class="sectionInicioSesion">
@@ -20,8 +20,8 @@
         <form action="index.php?action=verPerfil" id="inicioDeSesion" name="inicioDeSesion" method="POST">
             <input type="text" placeholder="Usuario" name="usuario" id="usuarioIni">
             <input type="password" placeholder="Contraseña" name="contrasena" id="contrasenaIni"> 
-            <label id="errorInicio" style="display: none;" >La contraseña o el usuario son incorrectos</label>
-            <input type="button" onclick="iniciarSesion()" value="Iniciar Sesion">
+            <p class="pErrorInicio" id="errorInicio" style="display: none;" >La contraseña o el usuario son incorrectos</p>
+            <input class="submitRegistro" type="button" onclick="iniciarSesion()" value="Iniciar Sesion">
         </form>
     </section> 
 </main>

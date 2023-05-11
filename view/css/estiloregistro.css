@@ -1,0 +1,56 @@
+.sectionRegistro{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+    margin:auto;
+    margin-bottom: 5vh;
+}
+.sectionRegistro p{
+    color: rgb(206, 203, 203);
+    font-size: 18px;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2vh;
+}
+.sectionRegistro input{
+    width: 45%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2vh;
+    font-size: 20px;
+}
+.sectionInicioSesion{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+    margin:auto;
+    margin-bottom: 2vh;
+}
+.sectionInicioSesion form{
+    width: 100%;
+}
+.sectionInicioSesion input{
+    width: 45%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2vh;
+    font-size: 20px;
+}
+ .pErrorInicio{
+    color: rgb(206, 203, 203);
+    font-size: 25px;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2vh;
+    width: 100%;
+    text-align: center;
+}
+.sectionRegistro .submitRegistro , .sectionInicioSesion .submitRegistro{
+    width: 96%;
+}

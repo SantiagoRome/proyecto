@@ -13,7 +13,7 @@ if(strlen($nombre)>35 || !preg_match("/[A-ZÁÉÍÓÚ]{1}[A-Za-zñáéíóú\s]+
     $texto=$texto." el nombre solo permite caracteres normales y debe empezar por una mayuscula.";
 }
 if (!preg_match("/[A-ZÁÉÍÓÚ]{1}[A-Za-zñáéíóú\s]+/",$apellidos)){
-    $texto=$texto." los apellidos solo permiten caracteres normales y deben empezar por una mayuscula.>";
+    $texto=$texto." los apellidos solo permiten caracteres normales y deben empezar por una mayuscula.";
 }
 if (!preg_match("/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/",$email)){
     $texto=$texto." por favor introduzca un email valido.";

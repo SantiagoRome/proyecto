@@ -81,4 +81,8 @@ class cliente
 		$this->view='foro';
 		return $this->tameforsomis->getForoPorId($_GET['id']);
 	}
+	public function deslogear(){
+		$this->view='web';
+		setcookie("user","",time()-60,'/');
+	}
 }

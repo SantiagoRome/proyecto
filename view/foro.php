@@ -86,6 +86,8 @@
                     p=document.createElement('p');
                     p.setAttribute("class","pForo");
                     p.innerText=resultado[i]['texto'];
+                    div=document.createElement('div');
+                    div.setAttribute("class","botones");
 
             /*if(!empty($mensajes[$i]->getMensajes()))
                 <p onclick="verRespuestas(<?php //echo $mensajes[$i]->getId()?> ,'')">Ver respuestas<i class="fa-solid fa-caret-down" style="color: #ffffff;"></i></p>
@@ -105,8 +107,9 @@
             pregunta.appendChild(articulo);
             articulo.appendChild(h2);
             articulo.appendChild(p);
-            articulo.appendChild(inputborrar);
-            articulo.appendChild(inputcontestar);
+            articulo.appendChild(div);
+            div.appendChild(inputborrar);
+            div.appendChild(inputcontestar);
            }
             boton=pregunta.children;
             boton=boton[2];
