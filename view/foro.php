@@ -64,7 +64,8 @@
            xhttp.open("GET","./view/ajax/borrarMensaje.php?mensaje="+id); 
            xhttp.send(); 
     }
-    function crearMensaje(){
+    function crearMensaje(id=null){
+        if(id==null){
         texto=document.getElementById("mensaje").value;
         foro=<?=$_GET['id']?>;
         console.log(foro);
@@ -73,46 +74,80 @@
                resultado=this.responseText;
                 console.log(resultado);
                if(resultado=="correcto"){
-                    location.reload();
-                
+                    location.reload();           
                 }
            }
            xhttp.open("GET","./view/ajax/crearMensaje.php?mensaje="+texto+"&foro="+foro); 
            xhttp.send();
+        }else{
+            texto=document.getElementById("mensaje"+id).value;
+            foro=<?=$_GET['id']?>;
+            console.log(foro);
+            const xhttp= new XMLHttpRequest();
+                xhttp.onload = function(){
+                resultado=this.responseText;
+                console.log(resultado);
+                if(resultado=="correcto"){
+                    location.reload();           
+                }
+                }
+           xhttp.open("GET","./view/ajax/crearMensaje.php?mensaje="+texto+"&foro="+foro+"&id="+id); 
+           xhttp.send();
+        }
     }
     function verRespuestas(id){
-        pasa=document.getElementById(id);
-        console.log(id);
-        console.log(pasa);
-            boton=pasa.children;
+        articulo=document.getElementById(id);
+            div=articulo.children[articulo.children.length-1];
+            console.log(articulo);
+            console.log(articulo.children);
+            console.log(div);
+            div.setAttribute("class","contestaciones");
+            boton=articulo.children;
             boton=boton[2];
             boton=boton.children;
             boton=boton[0];
-            boton.setAttribute("onclick","ocultarRespuestas("+mensaje+","+id+")");
-            console.log(boton);
-            
-        
+            boton.setAttribute("onclick","ocultarRespuestas("+id+")"); 
     }
-    function ocultarRespuestas(idarticulo,id){
-        console.log(idarticulo);
-        elementos=idarticulo.children;
-        for(i=0;i<idarticulo.children.length;i++){
-            console.log(elementos[i]);
-            if(elementos[i].nodeName=="DIV"){
-                boton=elementos[i].children
-                boton=boton[0];
-                console.log("hola");
-                boton.setAttribute("onclick","verRespuestas("+id+",'"+idarticulo.getAttribute('id')+"')");
-            }
-            if(elementos[i].nodeName=="ARTICLE"){
-                console.log("borraaaaaa");
-                idarticulo.removeChild(elementos[i]);
-            }
-        }
+    function ocultarRespuestas(idarticulo){
+        articulo=document.getElementById(idarticulo);
+        div=articulo.children[articulo.children.length-1];
+        div.setAttribute("class","contestaciones oculto");
+        boton=articulo.children;
+        boton=boton[2];
+        boton=boton.children;
+        boton=boton[0];
+        boton.setAttribute("onclick","verRespuestas("+idarticulo+")");
+
          
  
     }
-    function contestar(){
+    function contestar(id){
+        articulo=document.getElementById(id);
         
+        input=document.createElement("input");
+
+        div=document.createElement("div");
+        input.setAttribute("type","textarea");
+        input.setAttribute("name","mensaje");
+        input.setAttribute("id","mensaje"+id);
+        input.setAttribute("Placeholder","añade un comentario...");
+        boton=document.createElement("input");
+        boton.setAttribute("type","button");
+        boton.setAttribute("value","enviar");
+        boton.setAttribute("onclick","crearMensaje("+id+")");
+        
+        botonCancelar=document.createElement("input");
+        botonCancelar.setAttribute("type","button");
+        botonCancelar.setAttribute("value","cancelar");
+        botonCancelar.setAttribute("onclick","cancelarMensaje("+id+")");
+        articulo.insertBefore(div,articulo.children[articulo.children.length-1]);
+        div.appendChild(input);
+        div.appendChild(botonCancelar);
+        div.appendChild(boton);
+    }
+    function cancelarMensaje(id){
+        articulo=document.getElementById(id);
+        div=articulo.children[articulo.children.length-2];
+        articulo.removeChild(div);
     }
 </script>
