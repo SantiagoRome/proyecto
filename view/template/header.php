@@ -41,10 +41,10 @@
             Foros
         </a>
         <?php
-        if(isset($_COOKIE['user'])){
+        if(isset($_SESSION["user"])){
             ?>
             <a class="headera" href="index.php?action=verPerfil">
-            <?php echo $_COOKIE['user'];?>
+            <?php echo $_SESSION["user"];?>
         </a>
         <?php
         }else{

@@ -46,7 +46,7 @@ class Mensaje
         if ($result->num_rows > 0) {
 			$i = 0;
 			while ($row = $result->fetch_assoc()) {
-				$this->mensajes[$i] = new Mensaje($row['id'], $row['texto'], $row['usuario']);
+				$this->mensajes[$i] = new Mensaje($row['texto'], $row['usuario'],$row['id']);
 				$i++;
 			}
 			return $this->mensajes;

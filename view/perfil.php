@@ -1,11 +1,8 @@
 <main>
     <section>
-        <?php
-            var_dump($_COOKIE['user']);
-        ?>
         <h1>Mi cuenta</h1>
         <div>
-            <input type="text" name="usuario" id="usuario" value="<?=$_COOKIE['user']?>" disabled>
+            <input type="text" name="usuario" id="usuario" value="<?=$_SESSION["user"]?>" disabled>
             <input type="button" name="botonusuario" id="botonusuario" value="Cambiar" onclick="modificarDatos('usuario')">
         </div>
         <div>

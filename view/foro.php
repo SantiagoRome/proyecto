@@ -8,10 +8,11 @@
     </article>
     <?php
     $mensajes=$dataToView->getMensajes();
-    if (!empty($mensajes)) {
+    listarMensajes($mensajes);
+    function listarMensajes($mensajes){
         for($i=0;$i<count($mensajes);$i++){
         ?>
-        <article class="articleForo" id="<?php echo "mensaje".$i?>">
+        <article class="articleForo" id="<?=$mensajes[$i]->getId()?>">
             <h2><?=$mensajes[$i]->getCreador()?></h2>
             <p class="textoMensaje">
                 <?=$mensajes[$i]->getTexto()?>
@@ -20,11 +21,11 @@
             <?php
             if(!empty($mensajes[$i]->getMensajes())){
             ?>
-                <p value="respuestas" onclick="verRespuestas(<?php echo $mensajes[$i]->getId()?> ,'<?php echo 'mensaje'.$i ?>')">Ver respuestas<i class="fa-solid fa-caret-down" style="color: #ffffff;"></i></p>
+                <p value="respuestas" onclick="verRespuestas('<?php echo $mensajes[$i]->getId()?>')">Ver respuestas<i class="fa-solid fa-caret-down" style="color: #ffffff;"></i></p>
             <?php
             }   
-                if(isset($_COOKIE['user'])){
-                    if($mensajes[$i]->getCreador()==$_COOKIE['user'] || $_COOKIE['user']=="Administrador"){
+                if(isset($_SESSION["user"])){
+                    if($mensajes[$i]->getCreador()==$_SESSION["user"] || $_SESSION["user"]=="Administrador"){
             ?>
                 <input class="botonCerrar" type="button" onclick="borrar('<?=$mensajes[$i]->getId()?>')" value="borrar">
             <?php
@@ -33,11 +34,17 @@
             ?>
                 <input type="button" onclick="contestar('<?=$mensajes[$i]->getId()?>')" value="contestar">
             </div>
+            <div class="contestaciones oculto">
+            <?php
+            if(!empty($mensajes[$i]->getMensajes())){
+                listarMensajes($mensajes[$i]->getMensajes());
+            } ?> 
+            </div>
         </article><br>
             <?php
             }
+    }
         
-        }
     ?>
 </main>
 <script>
@@ -73,66 +80,18 @@
            xhttp.open("GET","./view/ajax/crearMensaje.php?mensaje="+texto+"&foro="+foro); 
            xhttp.send();
     }
-    function verRespuestas(id, mensaje){
+    function verRespuestas(id){
+        pasa=document.getElementById(id);
         console.log(id);
-        console.log(mensaje);
-        const xhttp= new XMLHttpRequest();
-            xhttp.onload = function(){
-               resultado=this.response;
-               console.log(resultado);
-               for(i=0;i<resultado.length;i++){
-                articulo=document.createElement('article');
-                articulo.setAttribute("class","articuloForo");
-                articulo.setAttribute("id",mensaje+"c"+i); 
-                    h2=document.createElement('h2');
-                    h2.innerText=resultado[i]['usuario'];
-                    p=document.createElement('p');
-                    p.setAttribute("class","pForo");
-                    p.innerText=resultado[i]['texto'];
-                    div=document.createElement('div');
-                    div.setAttribute("class","botones");
-
-            /*if(!empty($mensajes[$i]->getMensajes()))
-                <p onclick="verRespuestas(<?php //echo $mensajes[$i]->getId()?> ,'')">Ver respuestas<i class="fa-solid fa-caret-down" style="color: #ffffff;"></i></p>
-            }*/
-            borrar=false;
-            <?php if(isset($_COOKIE['user'])){ ?>
-                if(resultado[i]['usuario']=="<?=$_COOKIE['user']?>" || "<?=$_COOKIE['user']?>"=="Administrador"){
-
-                inputborrar=document.createElement('input');
-                inputborrar.setAttribute("onclick","borrar("+resultado[i]['id']+")");
-                inputborrar.value="borrar";
-                inputborrar.setAttribute("type","button");
-                borrar=true;
-            }
-            <?php
-            }
-            ?>
-            inputcontestar=document.createElement('input');
-            inputcontestar.setAttribute("onclick","contestar("+resultado[i]['id']+")");
-            inputcontestar.value="contestar";
-            inputcontestar.setAttribute("type","button");
-            pregunta=document.getElementById(mensaje);
-            pregunta.appendChild(articulo);
-            articulo.appendChild(h2);
-            articulo.appendChild(p);
-            articulo.appendChild(div);
-            if(borrar==true){
-                div.appendChild(inputborrar);
-            }
-            div.appendChild(inputcontestar);
-           }
-            boton=pregunta.children;
+        console.log(pasa);
+            boton=pasa.children;
             boton=boton[2];
             boton=boton.children;
             boton=boton[0];
             boton.setAttribute("onclick","ocultarRespuestas("+mensaje+","+id+")");
             console.log(boton);
             
-        }
-           xhttp.open("GET","./view/ajax/cargarRespuestas.php?mensaje="+id); 
-           xhttp.responseType='json';
-           xhttp.send();
+        
     }
     function ocultarRespuestas(idarticulo,id){
         console.log(idarticulo);

@@ -3,11 +3,10 @@
 
 
 
-class cliente
+class Cliente
 {
 
 	public $view;
-	public $lateralDerecho;
 	private $tameforsomis;
 
 
@@ -60,13 +59,13 @@ class cliente
 		$this->view = 'perfil';
 		if(isset($_POST['email'])){
 			$usuario=$this->tameforsomis->crearUsuario();
-			setcookie("user",$_POST['usuario'],time()+3600*24*365,'/');
+			$_SESSION["user"]=$_POST['usuario'];
 			return $usuario;
-		}else if(isset($_COOKIE["user"])){
-			$usuario=$this->tameforsomis->getUserEspecifico($_COOKIE["user"]);
+		}else if(isset($_SESSION["user"])){
+			$usuario=$this->tameforsomis->getUserEspecifico($_SESSION["user"]);
 			return $usuario;
 		}else{
-			setcookie("user",$_POST['usuario'],time()+3600*24*365,'/');
+			$_SESSION["user"]=$_POST['usuario'];
 			$usuario=$this->tameforsomis->getUserEspecifico($_POST['usuario']);
 			return $usuario;
 		}
@@ -83,6 +82,6 @@ class cliente
 	}
 	public function deslogear(){
 		$this->view='web';
-		setcookie("user","",time()-60,'/');
+		session_destroy();
 	}
 }

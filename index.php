@@ -11,11 +11,11 @@ require_once 'model/origen.php';
 require_once 'model/mensaje.php';
 require_once 'model/usuario.php';
 if  (!isset($_GET["action"])) $_GET["action"] = constant("DEFAULT_ACTION");
+session_start();
 
 
 
-
-$controlador = new cliente();
+$controlador = new Cliente();
 
 $dataToView = array();
 $dataToView  = $controlador->{$_GET["action"]}();
