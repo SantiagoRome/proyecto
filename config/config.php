@@ -9,4 +9,4 @@ define("DB_PASS", "");
 /* Default options */
 
 define("DEFAULT_ACTION", "web");
-define("DEFAULT_LATERALDERECHO","derecho1");
+define("DEFAULT_LATERALDERECHO", "derecho1");

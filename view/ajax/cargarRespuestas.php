@@ -15,4 +15,3 @@ include_once("../../model/foro.php");
         $i++;
     }
     echo json_encode($mensajes);
-?>

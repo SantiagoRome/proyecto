@@ -1,16 +1,21 @@
-h1{
+h1 {
     color: white;
     font-size: 40px;
     margin-bottom: 2vh;
 }
-p{
+
+p {
     color: white;
     font-size: 26px;
 }
-h2{
+
+h2 {
     color: white;
 }
-table, th,td{
+
+table,
+th,
+td {
     border: 2px solid white;
     border-collapse: collapse;
     color: white;
@@ -18,14 +23,17 @@ table, th,td{
     margin-right: 2vw;
 
 }
-th{
+
+th {
     background-color: #F27141;
 }
-th,td{
+
+th,
+td {
     font-size: 30px;
 }
 
-.h3Clase{
+.h3Clase {
     display: flex;
     color: white;
     align-items: center;
@@ -36,14 +44,34 @@ th,td{
     padding-right: 5px;
     border-radius: 5px;
 }
-.tablaClase{
-    float: left;
+
+.tablaClase {
+    width: 100%;
     margin-bottom: 10px;
-    width: 45%;
 }
-.habilidades{
+
+.habilidades {
     display: flex;
 }
-.pClase{
+
+.pClase {
     margin-bottom: 2.5vh;
+}
+
+.imagenClase {
+    float: right;
+    height: 100%;
+    border: 2px solid rgb(157, 5, 5);
+    margin-left: 10px;
+}
+
+.spanAtributos {
+    color: #087E8B;
+}
+
+@media (min-width: 420px) {
+    .tablaClase {
+        float: left;
+        width: 45%;
+    }
 }

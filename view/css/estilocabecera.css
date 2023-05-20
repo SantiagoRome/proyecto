@@ -1,85 +1,88 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  font-family: 'Montserrat Alternates', sans-serif;
 }
-html{
+
+html {
   height: 100vh;
 }
-.headerdiv{
+
+.headerdiv {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-i{
-  width: 12px;
-  height: 12px;
+
+header {
+  height: 7vh;
+  background-color: black;
+  margin-bottom: 2vh;
 }
-  header{
-    display: flex;
-    height: 7vh;
-    background-color: black;
-    justify-content: space-around;
-    align-items: center;
-    border-bottom: 2px solid rgb(134, 130, 130);
-    margin-bottom: 2vh;
-  }
-  /*clase exlusiva para el logo del header*/
-  .logo{
-    width: 26%;
-    height: 100%;
-    background-size: cover;
-    align-self: initial;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .headera{
-    font-size: 20px;
-    color: rgb(207, 201, 201);
-    font-size: 40px;
-  }
-  body{
-    background: url(../../img/HD-wallpaper-stars-black-blackandwhite-night-sky-star-white.jpg);
-  }
-  .imagenLogo{
-    width: 90%;
-  }
-  a:link,   a:visited,   a:active {
-    text-decoration:none;
-    color: rgb(207, 201, 201);
+
+/*clase exlusiva para el logo del header*/
+.logo {
+  width: 26%;
+  background-size: cover;
+  align-self: initial;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.headera:nth-child(1){
-  text-decoration: underline;
+
+.headera {
+  font-size: 40px;
+  color: rgb(207, 201, 201);
 }
-.headera:nth-child(2){
-  text-decoration: underline;
+
+body {
+  background: url(../../img/HD-wallpaper-stars-black-blackandwhite-night-sky-star-white.jpg);
 }
-.probando{
+
+.imagenLogo {
+  width: 90%;
+}
+
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: rgb(207, 201, 201);
+}
+
+
+.probando {
 
   background-image: url(../../img/prueba2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
-.imagenRaza, .imagenClase{
+
+.imagenRazaHeader,
+.imagenClaseHeader {
   border-radius: 50%;
   width: 70%;
+  border: 6px solid #D24E1D;
 }
-.razas, .clases{
+
+.razas,
+.clases {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   transition: all 1s;
 }
-.raza, .clase{
+
+.raza,
+.clase {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: brown;
   margin-bottom: 2vh;
   margin-left: 2%;
   margin-right: 2%;
@@ -87,12 +90,139 @@ i{
   width: 160px;
   transition: width 1s;
 }
-.invisible{
+
+.invisible {
   display: none !important;
 }
-.ocultarRazas,.ocultarClases{
+
+.ocultarRazas,
+.ocultarClases {
   transform: rotateX(180deg);
 }
 
+.desktop {
+  display: none;
+}
 
+.icono_barras {
+  display: block;
+}
 
+.icono_barras span {
+  display: block;
+  width: 40px;
+  height: 5px;
+  margin-bottom: 8px;
+  background: white;
+  border-radius: 3px;
+  transition: all 1s;
+}
+
+.icono_cruz span:nth-child(1) {
+  transform: rotate(45deg) translateY(19px) translateX(6px);
+  width: 30px;
+}
+
+.icono_cruz span:nth-child(2) {
+  width: 0;
+
+}
+
+.icono_cruz span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-11px);
+  width: 30px;
+}
+
+.icono_cruz span {
+  display: block;
+  width: 40px;
+  height: 5px;
+  margin-bottom: 8px;
+  background: white;
+  border-radius: 3px;
+  transition: all 1s;
+}
+
+.desktop {
+  display: none;
+}
+
+.menu {
+  position: absolute;
+  right: 10px;
+  top: 60px;
+  z-index: 100;
+}
+
+.off {
+  position: absolute;
+  top: -550px;
+  transition: all 1s;
+}
+
+.on {
+  position: absolute;
+  top: 0;
+  transition: all 1s;
+}
+
+.movil {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: black;
+  width: 100%;
+  border: 5px solid white;
+  height: 500px;
+}
+
+.movil a {
+  width: 100%;
+  text-align: center;
+}
+
+.main p {
+  font-size: 20px;
+}
+
+@media (min-width: 420px) {
+  .desktop {
+    display: initial;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid rgb(134, 130, 130);
+  }
+
+  .headera {
+    font-size: 24px;
+    color: rgb(207, 201, 201);
+  }
+
+  .movil {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .logo {
+    height: 100%;
+  }
+
+  .headera:nth-child(1) {
+    text-decoration: underline;
+  }
+
+  .headera:nth-child(2) {
+    text-decoration: underline;
+  }
+}
+
+@media (min-width: 820px) {
+  .headera {
+    font-size: 40px;
+  }
+}

@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 class Cliente
 {
 
@@ -36,7 +33,7 @@ class Cliente
 
 		return $negocio;
 	}
-    public function listarRazas()
+	public function listarRazas()
 	{
 		$this->view = 'razas';
 		return $this->tameforsomis->getRazas();
@@ -52,36 +49,41 @@ class Cliente
 	public function verUsuario()
 	{
 		$this->view = 'usuario';
-		
 	}
 	public function verPerfil()
 	{
 		$this->view = 'perfil';
-		if(isset($_POST['email'])){
-			$usuario=$this->tameforsomis->crearUsuario();
-			$_SESSION["user"]=$_POST['usuario'];
+		if (isset($_POST['email'])) {
+			$usuario = $this->tameforsomis->crearUsuario();
+			$_SESSION["user"] = $_POST['usuario'];
 			return $usuario;
-		}else if(isset($_SESSION["user"])){
-			$usuario=$this->tameforsomis->getUserEspecifico($_SESSION["user"]);
+		} else if (isset($_SESSION["user"])) {
+			$usuario = $this->tameforsomis->getUserEspecifico($_SESSION["user"]);
 			return $usuario;
-		}else{
-			$_SESSION["user"]=$_POST['usuario'];
-			$usuario=$this->tameforsomis->getUserEspecifico($_POST['usuario']);
+		} else {
+			$_SESSION["user"] = $_POST['usuario'];
+			$usuario = $this->tameforsomis->getUserEspecifico($_POST['usuario']);
 			return $usuario;
 		}
 	}
 	public function listarForos()
 	{
 		$this->view = 'foros';
-		return $this->tameforsomis->getForos();	
+		return $this->tameforsomis->getForos();
 	}
 	public function verForo()
 	{
-		$this->view='foro';
+		$this->view = 'foro';
 		return $this->tameforsomis->getForoPorId($_GET['id']);
 	}
-	public function deslogear(){
-		$this->view='web';
+	public function deslogear()
+	{
+		$this->view = 'web';
 		session_destroy();
+		$_SESSION = [];
+	}
+	public function modificarUser()
+	{
+		$this->view = "modificarUser";
 	}
 }

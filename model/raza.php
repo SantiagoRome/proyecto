@@ -7,21 +7,21 @@ class Raza
 	private $mediaVida;
 	private $idioma;
 	private $habilidad;
-    private $img;
-	private array $origenes = array(); 
+	private $img;
+	private array $origenes = array();
 	private $conection;
 
 	// Métodos
-	public function __construct($nombre, $descripcion, $dado, $mediaVida, $idioma, $habilidad,$img)
+	public function __construct($nombre, $descripcion, $dado, $mediaVida, $idioma, $habilidad, $img)
 	{
 		$this->nombre = $nombre;
 		$this->descripcion = $descripcion;
-        $this->dado = $dado;
-        $this->mediaVida = $mediaVida;
+		$this->dado = $dado;
+		$this->mediaVida = $mediaVida;
 		$this->idioma = $idioma;
 		$this->habilidad = $habilidad;
-        $this->img=$img;
-        $this->getConection();
+		$this->img = $img;
+		$this->getConection();
 	}
 
 
@@ -42,24 +42,24 @@ class Raza
 	{
 		return $this->mediaVida;
 	}
-    public function getIdioma()
+	public function getIdioma()
 	{
 		return $this->idioma;
 	}
-    public function getHabilidad()
+	public function getHabilidad()
 	{
 		return $this->habilidad;
 	}
-    public function getImg()
-    {
-        return $this->img;
-    }
-    public function getConection()
+	public function getImg()
+	{
+		return $this->img;
+	}
+	public function getConection()
 	{
 		$dbObj = new Db();
 		$this->conection = $dbObj->conection;
 	}
-    public function getOrigenes()
+	public function getOrigenes()
 	{
 		$this->getConection();
 		$sql = "SELECT * FROM origen WHERE raza='$this->nombre'";
@@ -69,11 +69,10 @@ class Raza
 		if ($result->num_rows > 0) {
 			$i = 0;
 			while ($row = $result->fetch_assoc()) {
-				$this->origenes[$i] = new Origen($row['nombre'], $row['descripcion'], $row['dado'],$row['mediaVida'], $row['habilidad']);
+				$this->origenes[$i] = new Origen($row['nombre'], $row['descripcion'], $row['dado'], $row['mediaVida'], $row['habilidad']);
 				$i++;
 			}
 			return $this->origenes;
 		}
 	}
 }
-?>

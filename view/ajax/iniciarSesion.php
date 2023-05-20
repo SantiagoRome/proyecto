@@ -5,6 +5,7 @@ $usuario=$_GET['nombreUs'];
 $contrasena=$_GET['contrasena'];
 $contrasena=md5($contrasena);
 $conection=new Db();
+$usuario=mysqli_real_escape_string($conection->conection,$usuario);
     $sql = "SELECT * FROM usuario WHERE Usuario='$usuario'";
 
 	$result = $conection->conection->query($sql);
@@ -22,4 +23,3 @@ $conection=new Db();
 	}else{
         echo "error";
     }
-?>

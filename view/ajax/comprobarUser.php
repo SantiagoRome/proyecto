@@ -13,4 +13,3 @@ $conection=new Db();
 	}else{
         echo "no";
     }
-?>

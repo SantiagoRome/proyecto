@@ -6,7 +6,7 @@ class Origen
 	private $dado;
 	private $mediaVida;
 	private $habilidad;
-	 
+
 	private $conection;
 
 	// Métodos
@@ -14,10 +14,10 @@ class Origen
 	{
 		$this->nombre = $nombre;
 		$this->descripcion = $descripcion;
-        $this->dado = $dado;
-        $this->mediaVida = $mediaVida;
+		$this->dado = $dado;
+		$this->mediaVida = $mediaVida;
 		$this->habilidad = $habilidad;
-        $this->getConection();
+		$this->getConection();
 	}
 
 
@@ -38,11 +38,11 @@ class Origen
 	{
 		return $this->mediaVida;
 	}
-    public function getHabilidad()
+	public function getHabilidad()
 	{
 		return $this->habilidad;
-    }
-    public function getConection()
+	}
+	public function getConection()
 	{
 		$dbObj = new Db();
 		$this->conection = $dbObj->conection;

@@ -1,48 +1,60 @@
-.sectionRegistro{
+.sectionRegistro {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     width: 50%;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    margin:auto;
+    margin: auto;
     margin-bottom: 5vh;
+
 }
-.sectionRegistro p{
+
+.sectionRegistro h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.sectionRegistro p {
     color: rgb(206, 203, 203);
     font-size: 18px;
-    margin-left: 2%;
-    margin-right: 2%;
+
     margin-top: 2vh;
 }
-.sectionRegistro input{
+
+.sectionRegistro input {
     width: 45%;
-    margin-left: 2%;
-    margin-right: 2%;
     margin-top: 2vh;
     font-size: 20px;
 }
-.sectionInicioSesion{
+
+.sectionInicioSesion {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     width: 50%;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    margin:auto;
+    margin: auto;
     margin-bottom: 2vh;
 }
-.sectionInicioSesion form{
+
+.sectionInicioSesion h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.sectionInicioSesion form {
     width: 100%;
 }
-.sectionInicioSesion input{
+
+.sectionInicioSesion input {
     width: 45%;
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 2vh;
     font-size: 20px;
 }
- .pErrorInicio{
+
+.pErrorInicio {
     color: rgb(206, 203, 203);
     font-size: 25px;
     margin-left: 2%;
@@ -51,6 +63,12 @@
     width: 100%;
     text-align: center;
 }
-.sectionRegistro .submitRegistro , .sectionInicioSesion .submitRegistro{
-    width: 96%;
+
+.sectionRegistro .submitRegistro,
+.sectionInicioSesion .submitRegistro {
+    width: 100%;
+}
+
+form {
+    display: contents;
 }

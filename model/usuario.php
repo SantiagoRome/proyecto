@@ -5,9 +5,9 @@ class Usuario
 	private $email;
 	private $apellidos;
 	private $fechaNac;
-    private $contrasena;
-    private $user;
-	 
+	private $contrasena;
+	private $user;
+
 	private $conection;
 
 	// Métodos
@@ -15,11 +15,11 @@ class Usuario
 	{
 		$this->nombre = $nombre;
 		$this->email = $email;
-        $this->apellidos = $apellidos;
-        $this->fechaNac = $fechaNac;
+		$this->apellidos = $apellidos;
+		$this->fechaNac = $fechaNac;
 		$this->contrasena = md5($contrasena);
-        $this->user = $user;
-        $this->getConection();
+		$this->user = $user;
+		$this->getConection();
 	}
 
 
@@ -40,25 +40,24 @@ class Usuario
 	{
 		return $this->fechaNac;
 	}
-    public function getContrasena()
+	public function getContrasena()
 	{
 		return $this->contrasena;
-    }
-    public function getUser()
+	}
+	public function getUser()
 	{
 		return $this->user;
-    }
-    public function getConection()
+	}
+	public function getConection()
 	{
 		$dbObj = new Db();
 		$this->conection = $dbObj->conection;
 	}
-    public function crearUser()
-    {
-        $this->getConection();
+	public function crearUser()
+	{
+		$this->getConection();
 		$sql = "INSERT INTO usuario(`nombre`, `apellidos`, `email`, `fechaNacimiento`, `contrasena`, `Usuario`) VALUES('$this->nombre','$this->apellidos','$this->email','$this->fechaNac','$this->contrasena','$this->user')";
 
 		$this->conection->query($sql);
-
-    }
+	}
 }

@@ -1,0 +1,28 @@
+.articuloForos {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3vh;
+}
+
+.articuloForos h1 {
+    margin-bottom: 10px;
+}
+
+.articuloForos a {
+    color: white;
+}
+
+.articuloForos p {
+    color: rgb(174, 173, 173);
+}
+
+.articuloForos div {
+    display: flex;
+    align-items: center;
+}
+
+.nuevoForo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
