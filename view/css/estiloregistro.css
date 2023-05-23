@@ -1,7 +1,7 @@
 .sectionRegistro {
     display: flex;
     flex-wrap: wrap;
-    width: 50%;
+    width: 95%;
     justify-content: space-between;
     align-items: center;
     margin: auto;
@@ -30,7 +30,7 @@
 .sectionInicioSesion {
     display: flex;
     flex-wrap: wrap;
-    width: 50%;
+    width: 95%;
     justify-content: space-between;
     align-items: center;
     margin: auto;
@@ -71,4 +71,20 @@
 
 form {
     display: contents;
+}
+
+@media (min-width: 420px) {
+
+    .sectionRegistro,
+    .sectionInicioSesion {
+        width: 90%;
+    }
+}
+
+@media (min-width: 1000px) {
+
+    .sectionRegistro,
+    .sectionInicioSesion {
+        width: 50%;
+    }
 }

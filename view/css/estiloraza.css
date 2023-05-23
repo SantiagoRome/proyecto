@@ -1,4 +1,44 @@
 .imgRaza {
-    float: right;
     margin-left: 2vw;
+    margin-bottom: 20px;
+    width: 60%;
+}
+
+.sectionRaza {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.sectionRaza h2 {
+    width: 100%;
+    text-align: left;
+}
+
+
+@media (min-width: 650px) {
+
+    .sectionRaza {
+        display: initial;
+    }
+
+    .imgRaza {
+        width: 30%;
+        float: right;
+        margin-left: 10px;
+    }
+}
+
+@media (min-width: 950px) {
+
+    .sectionRaza {
+        display: initial;
+    }
+
+    .imgRaza {
+        width: 20%;
+        float: right;
+        margin-left: 10px;
+    }
 }

@@ -1,4 +1,12 @@
 <main>
+    <section class="sectionClases">
+        <h1>
+            Clases
+        </h1>
+        <p>
+            En esta seccion podras ver imagenes y una breve descripción de las clases introducidas en el sistema, si quiere ver las habilidades y una descripción mas detallada puede hacer click en la imagen o el titulo.
+        </p>
+    </section>
     <?php for ($i = 0; $i < count($dataToView); $i++) {
     ?>
         <section class="sectionClases">

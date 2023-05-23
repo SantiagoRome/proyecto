@@ -26,7 +26,7 @@
 }
 
 .sectionClases {
-    margin-bottom: 2vh;
+    margin-bottom: 5vh;
 }
 
 
@@ -73,5 +73,9 @@
     .pclases {
         font-size: 32px;
         width: 70%;
+    }
+
+    .h1clases {
+        font-size: 42px;
     }
 }

@@ -32,11 +32,15 @@
                         if ($mensajes[$i]->getCreador() == $_SESSION["user"] || $_SESSION["user"] == "Administrador") {
                         ?>
                             <input class="botonCerrar" type="button" onclick="borrar('<?= $mensajes[$i]->getId() ?>')" value="Borrar">
-                    <?php
+                        <?php
                         }
                     }
+                    if (isset($_SESSION["user"])) {
+                        ?>
+                        <input type="button" onclick="contestar('<?= $mensajes[$i]->getId() ?>')" value="Contestar">
+                    <?php
+                    }
                     ?>
-                    <input type="button" onclick="contestar('<?= $mensajes[$i]->getId() ?>')" value="Contestar">
                 </div>
                 <div class="contestaciones oculto">
                     <?php
@@ -86,6 +90,7 @@
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
                 resultado = this.responseText;
+                console.log(resultado);
                 if (resultado == "correcto") {
                     location.reload();
                 }

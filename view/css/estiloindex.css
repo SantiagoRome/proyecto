@@ -4,34 +4,98 @@ main {
     flex: 1;
 }
 
+.indexLogo {
+    width: 95%;
+}
+
+.logop {
+    width: 200px;
+}
+
 .indexh1 {
-    color: rgb(30, 147, 193);
-    font-size: 46px;
+    width: 100%;
+    font-size: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
     height: 70px;
     /*text-shadow: 4px 4px rgb(106, 106, 106);*/
-    text-shadow: 2px 2px rgb(159, 220, 244);
+    text-shadow: 2px 2px rgb(184, 227, 244);
 }
 
 .indexp {
     font-size: 16px;
     color: rgb(206, 203, 203);
     text-align: justify;
+    line-height: 1.5;
+    margin-bottom: 20px;
 }
 
-.indexsection {
+
+.sectionLogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 5vh;
 }
 
-.spanIndex {
-    color: #D98E04;
+.indexsection {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5vh;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.spanindex {
+    color: #F27141;
+}
+
+.spanindex a:link,
+.spanindex a:visited,
+.spanindex a:active {
+    text-decoration: none;
+    color: #F27141;
 }
 
 @media (min-width: 420px) {
     .indexp {
         font-size: 26px;
     }
+
+    .logoMovil {
+        display: none;
+    }
+}
+
+@media (min-width: 800px) {
+    .indexLogo {
+        width: 65%;
+    }
+
+    .indexp {
+        font-size: 26px;
+    }
+
+    .indexsection {
+        display: initial;
+
+    }
+
+    .indexsection img:nth-child(2) {
+        float: right;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    .indexsection img:nth-child(4) {
+        float: left;
+        margin-top: 10px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+
 }

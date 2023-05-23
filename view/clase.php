@@ -1,7 +1,7 @@
 <main>
-    <section>
+    <section class="sectionClase">
+        <h1 class="h1clase"><?php echo $dataToView->getNombre() ?></h1>
         <img class="imagenClase" src="<?= $dataToView->getImg() ?>">
-        <h1><?php echo $dataToView->getNombre() ?></h1>
         <p><?php echo $dataToView->getDescripcion() ?></p>
         <br>
         <h2><span class="spanAtributos">Rol: </span><?php echo $dataToView->getRol(); ?></h2>
@@ -11,10 +11,10 @@
         <h2><span class="spanAtributos">Competencias en las Tiradas de salvacion: </span><?php echo $dataToView->getCompetencias() ?></h2>
         <br>
         <br>
-        <h1>Habilidades de clase</h1>
     </section>
     <br>
     <section>
+        <h1>Habilidades de clase</h1>
         <?php
         $habilidades = $dataToView->getHabilidades();
         ?>
@@ -39,11 +39,14 @@
                         </td>
                         <td>
                             <?php
+                            $texto = "";
                             for ($x = 0; $x < count($habilidades); $x++) {
                                 if ($habilidades[$x]->getNivel() == $i) {
-                                    echo $habilidades[$x]->getNombre() . " ";
+                                    $texto .= $habilidades[$x]->getNombre() . ", ";
                                 }
                             }
+                            $texto = substr($texto, 0, -2);
+                            echo $texto
                             ?>
                         </td>
                     </tr>
@@ -52,7 +55,7 @@
                 ?>
             </tbody>
         </table>
-        <br>
+
         <?php
         for ($i = 0; $i < count($habilidades); $i++) {
         ?>

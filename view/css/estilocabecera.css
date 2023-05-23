@@ -93,6 +93,10 @@ a:active {
 
 .invisible {
   display: none !important;
+  width: 160px !important;
+  transition: all 1s;
+  left: -3000px;
+
 }
 
 .ocultarRazas,
@@ -148,25 +152,30 @@ a:active {
 }
 
 .menu {
-  position: absolute;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background: url(../../img/HD-wallpaper-stars-black-blackandwhite-night-sky-star-white.jpg);
+  position: fixed;
   right: 10px;
-  top: 60px;
+  top: 20px;
   z-index: 100;
 }
 
 .off {
-  position: absolute;
+  position: fixed;
   top: -550px;
   transition: all 1s;
 }
 
 .on {
-  position: absolute;
+  position: fixed;
   top: 0;
   transition: all 1s;
 }
 
 .movil {
+  padding-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
