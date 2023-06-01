@@ -31,6 +31,7 @@
             </thead>
             <tbody>
                 <?php
+                //creación de la tabla
                 for ($i = 1; $i <= 18; $i++) {
                 ?>
                     <tr>
@@ -57,6 +58,7 @@
         </table>
 
         <?php
+        //muestro de forma dinamica las habilidades. 
         for ($i = 0; $i < count($habilidades); $i++) {
         ?>
             <h3 class="h3Clase"><?php echo $habilidades[$i]->getNombre() . "<span style='margin-left:auto';>Nivel " . $habilidades[$i]->getNivel() . "</span>" ?></h3>

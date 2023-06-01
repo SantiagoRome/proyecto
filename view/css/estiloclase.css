@@ -13,6 +13,9 @@ h2 {
     color: white;
 }
 
+/*diseño de la tabla
+{
+*/
 table,
 th,
 td {
@@ -21,7 +24,6 @@ td {
     color: white;
     text-align: center;
     margin-right: 2vw;
-
 }
 
 th {
@@ -33,6 +35,9 @@ td {
     font-size: 30px;
 }
 
+/*
+}
+*/
 .h1clase {
     text-align: center;
 }

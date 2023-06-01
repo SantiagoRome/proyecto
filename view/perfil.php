@@ -17,7 +17,7 @@
             <input type="button" name="botonnombre" id="botonnombre" value="Cambiar" onclick="modificarDatos('nombre')">
         </div>
         <div>
-            <label class="labelPerfil" for="usuario">apellidos:</label>
+            <label class="labelPerfil" for="usuario">Apellidos:</label>
             <input type="text" name="apellidos" id="apellidos" value="<?= $dataToView->getApellidos() ?>" disabled>
             <input type="button" name="botonApellidos" id="botonapellidos" value="Cambiar" onclick="modificarDatos('apellidos')">
         </div>

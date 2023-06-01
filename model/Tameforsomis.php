@@ -1,4 +1,17 @@
 <?php
+/*
+Funciones del modelo central, estas fuciones siguen las siguientes estructuras
+ej: getClases(){
+	$sql "consulta sql que recoje los datos de todos los datos de la tabla"
+	Creación de los objetos php en bucle
+	return del array
+}
+getClasePorNombre($nombre){
+	$sql "consulta sql que reocje una sola linea de datos de la tabla"
+	Creación de un objeto php
+	return del objeto
+}
+*/
 class Tameforsomis
 {
 
@@ -98,13 +111,17 @@ class Tameforsomis
 	}
 	public function crearUsuario()
 	{
+		//creación de un objeto Usuario con los datos mandados por el formulario de registro
 		$usuario = new Usuario($_POST['nombre'], $_POST['email'], $_POST['apellidos'], $_POST['fnac'], $_POST['contrasena'], $_POST['usuario']);
+		//el objeto anterior ejecuta la funcion crearUser la cual guarda estos datos en la base de datos
 		$usuario->crearUser();
 		return $usuario;
 	}
 	public function getForos()
 	{
-		$sql = "SELECT f.id as idForo, f.nombre as nombreForo, u.usuario as nombreCreador FROM foro f JOIN usuario u ON u.id=f.creador ";
+		/*$sql = "SELECT f.id as idForo, f.nombre as nombreForo, u.usuario as nombreCreador FROM foro f JOIN usuario u ON u.id=f.creador ";*/
+		$sql = "SELECT f.id as idForo, f.nombre as nombreForo, (SELECT usuario from usuario u where u.id=f.creador) as nombreCreador FROM foro f";
+
 		$result = $this->conection->query($sql);
 
 		if ($result->num_rows > 0) {

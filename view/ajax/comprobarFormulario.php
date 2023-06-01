@@ -7,7 +7,7 @@ $fnac = $_GET['fnac'];
 $contrasena = $_GET['contrasena'];
 $texto = "";
 if (strlen($usuario) > 20 || !preg_match("/[A-Za-zñáéíóú]+/", $usuario)) {
-    $texto = "El nombre de usuario ha de tener como maximo 25 caracteres y solo permite caracteres normales sin espacios.";
+    $texto = "El nombre de usuario ha de tener como maximo 20 caracteres y solo permite caracteres normales sin espacios.";
 }
 if (strlen($nombre) > 35 || !preg_match("/[A-ZÁÉÍÓÚ]{1}[A-Za-zñáéíóú\s]+/", $nombre)) {
     $texto = $texto . " El nombre solo permite caracteres normales y debe empezar por una mayuscula.";

@@ -5,6 +5,7 @@ $usuario = $_GET['nombreUs'];
 $contrasena = $_GET['contrasena'];
 $contrasena = md5($contrasena);
 $conection = new Db();
+
 $sql = "SELECT * FROM usuario WHERE Usuario='$usuario'";
 
 $result = $conection->conection->query($sql);

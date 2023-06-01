@@ -5,12 +5,9 @@ session_start();
 $foro = $_GET['foro'];
 $usuario = $_SESSION['user'];
 $conexion = new Db();
-
-$sql = "SELECT u.usuario FROM usuario u JOIN foro f ON u.id=f.creador WHERE f.id='$foro'";
-$result = $conexion->conection->query($sql);
-$row = $result->fetch_assoc();
-
-if ($usuario == $row['usuario'] || $usuario == "Administrador") {
+//vuelvo a comprobar si el usuario es Administrador por si acaso
+if ($usuario == "Administrador") {
+    //borro el foro
     $sql = "DELETE FROM foro WHERE id=$foro";
     $conexion->conection->query($sql);
     echo "correcto";

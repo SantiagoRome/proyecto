@@ -1,5 +1,9 @@
 <?php
-
+/*
+Funciones del controlador, estas fuciones siguen la siguiente estructura
+$this->view=     "modificación de la pagina que se incluira mas adelante en el index"
+return $this->tameforsomis->funcion  "creación de objetos de php y envio a la variable $datatoview en el index.php"
+*/
 class Cliente
 {
 
@@ -53,13 +57,17 @@ class Cliente
 	public function verPerfil()
 	{
 		$this->view = 'perfil';
+		//compruebo como entro al perfil y utilizo las funciones necesarias.
+		//entrada al perfil por registro
 		if (isset($_POST['email'])) {
 			$usuario = $this->tameforsomis->crearUsuario();
 			$_SESSION["user"] = $_POST['usuario'];
 			return $usuario;
+			//entrada al perfil por el boton "nombre de usuario", osea que ya existe una session
 		} else if (isset($_SESSION["user"])) {
 			$usuario = $this->tameforsomis->getUserEspecifico($_SESSION["user"]);
 			return $usuario;
+			//entrada al perfil por el inicio de sesion
 		} else {
 			$_SESSION["user"] = $_POST['usuario'];
 			$usuario = $this->tameforsomis->getUserEspecifico($_POST['usuario']);
@@ -79,7 +87,9 @@ class Cliente
 	public function deslogear()
 	{
 		$this->view = 'web';
+		//destruyo la session para borrarla
 		session_destroy();
+		//borro los datos de $_SESSION por que aunque la siguiente vez que se haga session_start, la variable estara vacia, en esta iteración sigue llena.
 		$_SESSION = [];
 	}
 	public function modificarUser()

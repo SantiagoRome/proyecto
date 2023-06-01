@@ -7,7 +7,9 @@
             En esta seccion podras ver imagenes y una breve descripción de las clases introducidas en el sistema, si quiere ver las habilidades y una descripción mas detallada puede hacer click en la imagen o el titulo.
         </p>
     </section>
-    <?php for ($i = 0; $i < count($dataToView); $i++) {
+    <?php
+    //creación de las secciones clase por clase
+    for ($i = 0; $i < count($dataToView); $i++) {
     ?>
         <section class="sectionClases">
             <a href="index.php?action=verClase&nombreClase=<?= $dataToView[$i]->getNombre() ?>">

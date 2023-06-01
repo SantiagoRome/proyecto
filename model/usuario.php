@@ -56,6 +56,7 @@ class Usuario
 	public function crearUser()
 	{
 		$this->getConection();
+		//consulta que inserta los datos de este objeto en la base de datos
 		$sql = "INSERT INTO usuario(`nombre`, `apellidos`, `email`, `fechaNacimiento`, `contrasena`, `Usuario`) VALUES('$this->nombre','$this->apellidos','$this->email','$this->fechaNac','$this->contrasena','$this->user')";
 
 		$this->conection->query($sql);

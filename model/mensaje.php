@@ -35,6 +35,7 @@ class Mensaje
 	public function getCreador()
 	{
 		$this->getConection();
+		//recojo el nombre de usuario de este mensaje parar poder enseñar el nombre
 		$sql = "SELECT u.usuario FROM usuario u JOIN mensaje m ON m.usuario=u.id WHERE m.id='$this->id'";
 		$result = $this->conection->query($sql);
 		$row = $result->fetch_assoc();
@@ -48,18 +49,21 @@ class Mensaje
 	public function getMensajes()
 	{
 		$this->getConection();
+		//SELECT de todos los mensajes que sean contestaciones de este mensaje
 		$sql = "SELECT * FROM mensaje WHERE pregunta='$this->id'";
 		$result = $this->conection->query($sql);
 		if ($result->num_rows > 0) {
 			$i = 0;
 			while ($row = $result->fetch_assoc()) {
+				//creación del array de mensajes
 				$this->mensajes[$i] = new Mensaje($row['texto'], $row['usuario'], $row['id'], $row['fecha']);
 				$i++;
 			}
 			return $this->mensajes;
 		}
 	}
-	public function crearMensaje($foro)
+	//al final estas funciones se ejecutan en ajax, por lo que no son necesarias en el modelo.
+	/*public function crearMensaje($foro)
 	{
 		$this->getConection();
 		$sql = "INSERT INTO mensaje(`texto`,'foro','usuario') VALUES('$this->texto','$foro','$this->creador')";
@@ -78,5 +82,5 @@ class Mensaje
 		$result = $this->conection->query($sql);
 		$row = $result->fetch_assoc();
 		$this->id = $row['id'];
-	}
+	}*/
 }

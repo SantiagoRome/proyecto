@@ -1,5 +1,5 @@
 .articleForo {
-    /*background-color: rgba(205, 203, 203, 0.324);*/
+
     width: 100%;
     margin-top: 1vh;
     display: flex;
@@ -77,15 +77,6 @@ textarea {
     justify-content: center;
 }
 
-/*.nuevoMensaje input{
-    margin-left: 1vw;
-    margin-right: 0.5vw;
-    border-radius: 50px;
-    background-color: rgb(94, 142, 248);
-    border: none;
-    width: 80px;
-    height: 20px;
-}*/
 .contestacion {
     display: flex;
     align-items: center;

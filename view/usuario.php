@@ -28,6 +28,7 @@
 <script>
     document.getElementById("fnac").max = new Date().toISOString().split("T")[0];
 
+    //función ajax que comprueba si el nombre de usuario escrito ya existe en la base de datos y si existe muestra un mensaje para que el usuario modifique el nombre
     function comprobarUsuario() {
         var nombreUsu = document.getElementById("usuario").value;
         const xhttp = new XMLHttpRequest();
@@ -36,14 +37,17 @@
             resultado = this.responseText;
             if (resultado == "existe") {
                 document.getElementById("existeUsuario").innerHTML = "el nombre de usuario ya esta escogido";
+                document.getElementById('botonRegistro').disabled = true;
             } else {
                 document.getElementById("existeUsuario").innerHTML = "";
+                document.getElementById('botonRegistro').disabled = false;
             }
         }
         xhttp.open("GET", "./view/ajax/comprobarUser.php?nombreUs=" + nombreUsu);
         xhttp.send();
 
     }
+    //función que comprueba si la contraseña y el repetir contraseña son iguales, en caso de que no lo sea, manda un mensaje y evita que el usuario pueda hacer click en el boton de registro
 
     function comprobarContrasena() {
         var contrasena = document.getElementById("contrasena").value;
@@ -57,6 +61,7 @@
         }
     }
 
+    //función ajax que comprueba si las credenciales de inicio de sesion son correctas
     function iniciarSesion() {
         var contrasena = document.getElementById("contrasenaIni").value;
         var nombreUsu = document.getElementById("usuarioIni").value;
@@ -77,6 +82,7 @@
 
     }
 
+    //función ajax que comprueba si los datos para registrarse son correctos
     function comprobarRegistro() {
         var nombre = document.getElementById("nombre").value;
         var apellidos = document.getElementById("apellidos").value;

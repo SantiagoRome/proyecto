@@ -62,6 +62,7 @@ class Raza
 	public function getOrigenes()
 	{
 		$this->getConection();
+		//SELECT de los origenes dependiendo de la raza.
 		$sql = "SELECT * FROM origen WHERE raza='$this->nombre'";
 
 		$result = $this->conection->query($sql);
@@ -69,6 +70,7 @@ class Raza
 		if ($result->num_rows > 0) {
 			$i = 0;
 			while ($row = $result->fetch_assoc()) {
+				//creación de los objetos origen
 				$this->origenes[$i] = new Origen($row['nombre'], $row['descripcion'], $row['dado'], $row['mediaVida'], $row['habilidad']);
 				$i++;
 			}

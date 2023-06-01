@@ -3,7 +3,7 @@
     if (isset($_SESSION['user'])) {
     ?>
         <article class="nuevoForo">
-            <textarea placeholder="añade un comentario..." name="mensaje" id="mensaje"></textarea>
+            <textarea placeholder="Crea un nuevo foro..." name="mensaje" id="mensaje"></textarea>
             <input type="button" value="Enviar" onclick="crearForo()">
         </article>
     <?php
@@ -16,7 +16,7 @@
                 <p><?= $dataToView[$i]->getCreador() ?></p>
                 <?php
                 if (isset($_SESSION["user"])) {
-                    if ($dataToView[$i]->getCreador() == $_SESSION["user"] || $_SESSION["user"] == "Administrador") {
+                    if ($_SESSION["user"] == "Administrador") {
                 ?>
                         <input class="botonCerrar" type="button" onclick="borrar('<?= $dataToView[$i]->getId() ?>')" value="Borrar">
                 <?php
@@ -30,6 +30,7 @@
     ?>
 </main>
 <script>
+    //esta función es similar a la función borrar de foro.php
     function borrar(id) {
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
@@ -45,8 +46,12 @@
         xhttp.send();
     }
 
+    //esta función es similar a la función crearMensaje de foro,php
     function crearForo() {
         texto = document.getElementById("mensaje").value;
+        if (texto == "") {
+            return;
+        }
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
             resultado = this.responseText;
