@@ -91,4 +91,14 @@ input[type="button"] {
     border: none;
     width: 80px;
     height: 20px;
+    transition: all 1s;
+}
+
+@media (min-width: 450px) {
+    input[type="button"]:hover {
+        background-color: rgb(37, 72, 145);
+        color: whitesmoke;
+        transition: all 1s;
+    }
+
 }
